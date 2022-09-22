@@ -45,18 +45,23 @@ def run(inputfile):
                 #print(version)
                 #print("\r\n")
                 print(f"Sitecore version : {title} {version} dated {date}")
-                url4 = "https://" + i.strip() + url1
-                print(f"[+]making get request to {url4} :")
-                r1 = requests.get(url4)
-                print("[+]status code:")
-                print(r1.status_code)
-                if r1.status_code == 200:
-                    print(f"[+] Possible SiteCore RCE here! Visit {url4} to confirm")
-                print(f"[+]making post request to {url4} :")
-                r2 = requests.post(url4,data)
-                print(f"{r2.status_code}\r\n")
-                if r2.status_code == 200:
-                    print(f"[+] Possible SiteCore RCE here! Visit {url4} to confirm")
+                if int(root[0][0].text) >= 9: #Site core version >= 9
+                    print("[-]Not Vulnerable")
+                    print("\r\n")
+                    continue
+                else:
+                    url4 = "https://" + i.strip() + url1
+                    print(f"[+]making get request to {url4} :")
+                    r1 = requests.get(url4)
+                    print("[+]status code:")
+                    print(r1.status_code)
+                    if r1.status_code == 200:
+                        print(f"[+] Possible SiteCore RCE here! Visit {url4} to confirm")
+                    print(f"[+]making post request to {url4} :")
+                    r2 = requests.post(url4,data)
+                    print(f"{r2.status_code}\r\n")
+                    if r2.status_code == 200:
+                        print(f"[+] Possible SiteCore RCE here! Visit {url4} to confirm")
             elif x.status_code == 301:
                 print(f"[-] Redirected! No Sitecore here at {i.strip()}\r\n")
             else:
