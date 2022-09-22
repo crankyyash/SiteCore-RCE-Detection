@@ -15,7 +15,7 @@ May result in false positives if the web application handles ther error differen
 
 PoCs
 
-![1-1](https://user-images.githubusercontent.com/61792333/191758579-e83059d7-32b1-44ad-a047-6cd08529323f.png)
+![3](https://user-images.githubusercontent.com/61792333/191764846-2a03beb2-5bdf-451e-9093-5e4662f941da.PNG)
 
 ![2](https://user-images.githubusercontent.com/61792333/191758706-9d6a80dd-4d14-404a-ae88-541e78e079b6.PNG)
 
